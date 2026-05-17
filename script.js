@@ -2,8 +2,44 @@
   "use strict";
 
   const EMAIL = "pashamalik9371@gmail.com";
+  const THEMES = ["brutal", "genz", "glass", "vapor"];
+  const STORAGE_KEY = "portfolio-theme";
 
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  const playVaporIntro = () => {
+    document.body.classList.remove("vapor-intro");
+    void document.body.offsetWidth;
+    document.body.classList.add("vapor-intro");
+    clearTimeout(playVaporIntro._timer);
+    playVaporIntro._timer = setTimeout(() => {
+      document.body.classList.remove("vapor-intro");
+    }, 1400);
+  };
+
+  const applyTheme = (theme) => {
+    if (!THEMES.includes(theme)) theme = "brutal";
+    const prev = document.documentElement.getAttribute("data-theme");
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem(STORAGE_KEY, theme);
+    document.querySelectorAll(".theme-btn").forEach((btn) => {
+      const active = btn.dataset.theme === theme;
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+    if (theme === "vapor" && prev !== "vapor") playVaporIntro();
+  };
+
+  const savedTheme = localStorage.getItem(STORAGE_KEY);
+  if (THEMES.includes(savedTheme)) {
+    applyTheme(savedTheme);
+    if (savedTheme === "vapor") playVaporIntro();
+  } else {
+    applyTheme("brutal");
+  }
+
+  document.querySelectorAll(".theme-btn").forEach((btn) => {
+    btn.addEventListener("click", () => applyTheme(btn.dataset.theme));
+  });
 
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");

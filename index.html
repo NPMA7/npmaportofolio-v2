@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="brutal">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Exo+2:wght@400;500;600;700&family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      var t = localStorage.getItem("portfolio-theme");
+      if (t === "genz" || t === "glass" || t === "brutal" || t === "vapor") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
+
+  <aside class="theme-switcher" role="group" aria-label="Gaya desain">
+    <span class="theme-switcher-title">Gaya</span>
+    <button type="button" class="theme-btn" data-theme="brutal" aria-pressed="true" title="Neo Brutalism">
+      <span class="theme-btn-icon" aria-hidden="true">▣</span>
+      <span class="theme-btn-label">Brutal</span>
+    </button>
+    <button type="button" class="theme-btn" data-theme="glass" aria-pressed="false" title="Glassmorphic Futuristik">
+      <span class="theme-btn-icon" aria-hidden="true">◇</span>
+      <span class="theme-btn-label">Glass</span>
+    </button>
+    <button type="button" class="theme-btn" data-theme="genz" aria-pressed="false" title="Gen Z — Edgy &amp; Vibrant">
+      <span class="theme-btn-icon" aria-hidden="true">⚡</span>
+      <span class="theme-btn-label">Gen Z</span>
+    </button>
+    <button type="button" class="theme-btn" data-theme="vapor" aria-pressed="false" title="Glitch Art &amp; Vaporwave">
+      <span class="theme-btn-icon" aria-hidden="true">▒</span>
+      <span class="theme-btn-label">Vapor</span>
+    </button>
+  </aside>
 
   <header class="nav-wrap">
     <nav class="nav brutal-box" aria-label="Navigasi utama">
