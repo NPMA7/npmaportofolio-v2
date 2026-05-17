@@ -1493,6 +1493,10 @@ ul {
     padding: 0.65rem 0;
   }
 
+  .brutal-btn--sm.nav-cta {
+    padding: 0.85rem 1.3rem;
+  }
+
   .photo-frame.brutal-box--rotate {
     transform: none;
     margin-inline: auto;
@@ -1526,7 +1530,6 @@ ul {
   position: relative;
 }
 
-/* Jangan sembunyikan ::before pada kartu proyek/sertifikasi (tempat gambar) */
 [data-theme="genz"] .brutal-box:not(.project-card):not(.cert-card)::before {
   display: none;
 }
